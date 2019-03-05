@@ -6,7 +6,7 @@ class Todos extends Component {
       console.log(this.props.todos);//props of todo 
     return this.props.todos.map((todo) => 
     (
-        <TodoItem key={todo.id} todo ={todo} />//unique key props
+        <TodoItem key={todo.id} todo ={todo} />//unique key propsf
     )
     );
   }
