@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Todos from './components/Todos';
 
 class App extends Component {
-  state=
+  state= //cloud of data
   {
     todos: [
       {
@@ -22,11 +22,21 @@ class App extends Component {
       },
     ]
   }
+
+  //toggle complete
+  markComplete = (id) => {
+    this.setState({ todos: this.state.todos.map(todo => {
+      if (todo.id === id)  {
+        todo.completed =!todo.completed;
+      }
+      return todo;
+    })});//if mached, update
+  }
   render() {
     console.log(this.state.todos);
     return (
       <div className="App">
-        <Todos todos = {this.state.todos}/>   
+        <Todos todos = {this.state.todos} markComplete={this.markComplete} />   
       </div>//slipping props into Todos 
     );
   }
