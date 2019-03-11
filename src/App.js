@@ -1,5 +1,7 @@
 import React, { Component } from 'react'; 
 import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
+import Header from './components/layout/Header'
 
 class App extends Component {
   state= //cloud of data
@@ -42,8 +44,12 @@ delTodo = (id)=>{
     //console.log(this.state.todos);
     return (
       <div className="App">
+      <div className = 'container'> 
+      <Header/>
+      <AddTodo/>
         <Todos todos = {this.state.todos} markComplete={this.markComplete} delTodo = {this.delTodo}/>   
       </div>//slipping props into Todos 
+      </div>
     );
   }
 }
