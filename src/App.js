@@ -5,12 +5,14 @@ import AddTodo from './components/AddTodo';
 import About from './components/pages/About';
 import Header from './components/layout/Header'
 import uuid from 'uuid'
+import axios from 'axios'
 
 class App extends Component {
   state= //cloud of data
   {
     todos: [
-      {
+      //hardcoded
+      /*{
         id: uuid.v4(),
         title: 'todo1',
         completed: false
@@ -24,8 +26,12 @@ class App extends Component {
         id: uuid.v4(),
         title: 'todo3',
         completed: false
-      },
+      },*/
     ]
+  }
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .then(res => this.setState({ todos: res.data }))
   }
 
   //toggle complete
