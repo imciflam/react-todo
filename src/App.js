@@ -13,7 +13,7 @@ class App extends Component {
       {
         id: '2',
         title: 'todo2',
-        completed: true
+        completed: false
       },
       {
         id: '3',
@@ -32,11 +32,17 @@ class App extends Component {
       return todo;
     })});//if mached, update
   }
+  //delete todo
+delTodo = (id)=>{
+  //console.log(id);
+  this.setState({todos:[...this.state.todos.filter(todo=>todo.id!==id)]})
+}
+
   render() {
-    console.log(this.state.todos);
+    //console.log(this.state.todos);
     return (
       <div className="App">
-        <Todos todos = {this.state.todos} markComplete={this.markComplete} />   
+        <Todos todos = {this.state.todos} markComplete={this.markComplete} delTodo = {this.delTodo}/>   
       </div>//slipping props into Todos 
     );
   }
