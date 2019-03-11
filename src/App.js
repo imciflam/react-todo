@@ -41,7 +41,7 @@ class App extends Component {
         todo.completed =!todo.completed;
       }
       return todo;
-    })});//if mached, update
+    })});//if matched, update
   }
   //delete todo
 delTodo = (id)=>{
