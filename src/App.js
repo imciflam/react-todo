@@ -46,16 +46,23 @@ class App extends Component {
   //delete todo
 delTodo = (id)=>{
   //console.log(id);
-  this.setState({todos:[...this.state.todos.filter(todo=>todo.id!==id)]})
+  axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`).then(res=>this.setState({todos:[...this.state.todos.filter(todo=>todo.id!==id)]}))
+  //this.setState({todos:[...this.state.todos.filter(todo=>todo.id!==id)]})
 }
 //add
 addTodo = (title) =>{
-  const newTodo = {
+  /*const newTodo = {
     id:uuid.v4(),
     title:title,
-    completed:false
+    completed:false 
   }
-  this.setState({todos:[...this.state.todos, newTodo]})
+  this.setState({todos:[...this.state.todos, newTodo]})*/
+  axios.post('https://jsonplaceholder.typicode.com/todos',{
+    title:title,
+    completed:false
+  })
+  .then(res=>this.setState({todos:
+  [...this.state.todos,res.data]}));
 }
   render() {
     //console.log(this.state.todos);
