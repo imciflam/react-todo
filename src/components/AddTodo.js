@@ -6,6 +6,14 @@ export default class AddTodo extends Component {
         title:''
     }
 
+    getStyle = () => { 
+        return {
+            background: '#444444',
+            color: '#fff',
+            flex:1
+          }      
+    } 
+
     onSubmit = (e) =>{
         e.preventDefault();
         this.props.addTodo(this.state.title);
@@ -23,11 +31,9 @@ export default class AddTodo extends Component {
           value={this.state.title}
           onChange={this.onChange}
           />
-          <input 
+          <input style={this.getStyle()}
           type="submit"
-          value = "Submit"
-          className="btn"
-          style={{flex:1}}/>
+          value = "Submit"/>
       </form>
     )
   }

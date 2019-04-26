@@ -18,11 +18,24 @@ export class TodoItem extends Component {
     const { id, title } = this.props.todo;
     return (
         <div style={this.getStyle()}> 
-        <p>
-        <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}/>{ ' '}
-        {this.props.todo.title} 
-        <button onClick={this.props.delTodo.bind(this,id)} style = {btnStyle}>x</button>
-        </p>
+        
+
+
+        <div className="page__toggle"><p>  
+      <label className="toggle">
+        <input className="toggle__input" type="checkbox" onChange={this.props.markComplete.bind(this, id)} /> { ' '}
+        <span className="toggle__label">
+          <span className="toggle__text"></span>
+        </span>
+      </label>
+         <label>
+         <span>{this.props.todo.title} </span></label><button onClick={this.props.delTodo.bind(this,id)} style = {btnStyle}>x</button>
+     
+           </p>
+    </div>
+
+
+        
       </div>
     )//equals to title
   }
@@ -39,9 +52,15 @@ const itemStyle =
 }
 
 const btnStyle = {
-  background: '#ff0000',
+  background: '#c93a52',
   color:'#ffffff',
   cursor:'pointer',
-  float:'right'
+  float:'right',
+  border: '1px solid #f00',
+  borderRadius: '2em',
+  fontSize: '12px',
+  height: '20px',
+    lineHeight: '2px',
+    width: '20px'
 }
 export default TodoItem

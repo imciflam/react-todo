@@ -2,9 +2,10 @@
   "name": "react-todo",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://imciflam.github.io/react-todo/",
+  "homepage": "https://imciflam.github.io/react-todo/",
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-router-dom": "^4.3.1",
