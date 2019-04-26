@@ -16,14 +16,15 @@ export class TodoItem extends Component {
     }*/
   render() {
     const { id, title } = this.props.todo;
-    return (
+    const isCompleted = this.props.todo.completed;
+     return (
         <div style={this.getStyle()}> 
         
 
 
         <div className="page__toggle"><p>  
       <label className="toggle">
-        <input className="toggle__input" type="checkbox" onChange={this.props.markComplete.bind(this, id)} /> { ' '}
+        <input className="toggle__input" type="checkbox" onChange={this.props.markComplete.bind(this, id)} checked={isCompleted ? 'checked' : ''}/> { ' '}
         <span className="toggle__label">
           <span className="toggle__text"></span>
         </span>
@@ -32,13 +33,16 @@ export class TodoItem extends Component {
          <span>{this.props.todo.title} </span></label><button onClick={this.props.delTodo.bind(this,id)} style = {btnStyle}>x</button>
      
            </p>
-    </div>
-
-
-        
+    </div>  
       </div>
     )//equals to title
-  }
+  
+
+ 
+} 
+  
+ 
+
 }
 
 TodoItem.propTypes =
